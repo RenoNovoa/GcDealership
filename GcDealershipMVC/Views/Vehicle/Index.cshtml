@@ -1,0 +1,32 @@
+﻿@model IEnumerable<GcDealershipMVC.ViewModels.VehicleViewModel>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Dealership Inventory</h1>
+
+<form asp-controller="Vehicle" asp-action="GetCarById" method="post">
+    Enter Id: <input type="number" name="id" min="1" max="1000"/>
+    <button class="btn btn-primary">Search</button>
+</form>
+
+<table class="table table-bordered table-striped table-dark table-hover">
+    <tr>
+        <th>Id</th>
+        <th>Make</th>
+        <th>Model</th>
+        <th>Year</th>
+        <th>Color</th>
+    </tr>
+
+    @foreach (var vehicle in Model)
+    {
+        <tr>
+            <td>@vehicle.Id</td>
+            <td>@vehicle.Make</td>
+            <td>@vehicle.Model</td>
+            <td>@vehicle.Year</td>
+            <td>@vehicle.Color</td>
+        </tr>
+    }
+</table>
